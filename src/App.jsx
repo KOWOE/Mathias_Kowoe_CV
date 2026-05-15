@@ -177,11 +177,11 @@ export default function App() {
           <span className="text-4xl font-bold font-serif italic text-white/80">MK</span>
         </div>
         
-        <h1 className="hero-el text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tighter drop-shadow-2xl">
+        <h1 className="hero-el text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tighter drop-shadow-2xl">
           Mathias <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400">KOWOE</span>
         </h1>
         
-        <h2 className="hero-el text-lg md:text-2xl font-serif italic text-white/70 mb-6 font-light flex flex-wrap justify-center gap-x-3 gap-y-1">
+        <h2 className="hero-el text-base sm:text-lg md:text-2xl font-serif italic text-white/70 mb-6 font-light flex flex-wrap justify-center gap-x-3 gap-y-1">
           <span>Entrepreneur</span>
           <span className="text-accent/50">·</span>
           <span>Développeur</span>
@@ -212,8 +212,8 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 px-4 md:px-12 lg:px-24 max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-12 items-start bg-white/5 border border-white/10 rounded-[3rem] p-10 md:p-16 backdrop-blur-sm">
+      <section id="about" className="py-20 md:py-32 px-4 md:px-12 lg:px-24 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start bg-white/5 border border-white/10 rounded-3xl md:rounded-[3rem] p-6 sm:p-8 md:p-16 backdrop-blur-sm">
           <div className="md:w-1/3 about-el">
             <h2 className="text-4xl md:text-5xl font-serif italic text-accent">À propos</h2>
             <div className="mt-6 flex flex-col gap-3">
@@ -242,8 +242,8 @@ export default function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-32 px-4 md:px-12 lg:px-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-serif italic mb-20 text-center">Expérience</h2>
+      <section id="experience" className="py-20 md:py-32 px-4 md:px-12 lg:px-24 max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-serif italic mb-12 md:mb-20 text-center">Expérience</h2>
         
         <div className="relative">
           {/* Timeline center line */}
@@ -258,7 +258,7 @@ export default function App() {
                 
                 <div className="w-full md:w-1/2"></div>
                 
-                <div className="w-full md:w-1/2 exp-card bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-sm">
+                <div className="w-full md:w-1/2 exp-card bg-white/5 border border-white/10 p-6 md:p-8 rounded-3xl md:rounded-[2rem] backdrop-blur-sm">
                   <div className="font-mono text-accent text-sm mb-2">{exp.period}</div>
                   <h3 className="text-2xl font-bold mb-1">{exp.title}</h3>
                   <div className="text-white/60 mb-4">{exp.company}</div>
@@ -271,12 +271,12 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 px-4 md:px-12 lg:px-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-serif italic mb-16 text-center">Expertise</h2>
+      <section id="skills" className="py-20 md:py-32 px-4 md:px-12 lg:px-24 max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-serif italic mb-12 md:mb-16 text-center">Expertise</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
-            <div key={index} className="skill-card group bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-sm hover:border-accent/40 hover:bg-white/10 transition-all duration-300">
+            <div key={index} className="skill-card group bg-white/5 border border-white/10 p-6 md:p-8 rounded-3xl md:rounded-[2rem] backdrop-blur-sm hover:border-accent/40 hover:bg-white/10 transition-all duration-300">
               <div className="flex items-start justify-between mb-5">
                 <div>
                   <h4 className="font-bold text-lg text-white">{skill.name}</h4>
@@ -317,8 +317,8 @@ export default function App() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-32 px-4 md:px-12 lg:px-24 max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-serif italic mb-16 text-center">Formation</h2>
+      <section id="education" className="py-20 md:py-32 px-4 md:px-12 lg:px-24 max-w-4xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-serif italic mb-12 md:mb-16 text-center">Formation</h2>
         <div className="space-y-6">
           {education.map((edu, index) => (
             <div key={index} className="edu-card bg-white/5 border border-white/10 p-6 md:p-8 rounded-[2rem] flex flex-col md:flex-row md:items-center gap-4 md:gap-8 hover:bg-white/10 transition-colors">
@@ -333,12 +333,12 @@ export default function App() {
       </section>
 
       {/* Contact Section & Footer */}
-      <section id="contact" className="bg-accent text-white rounded-t-[4rem] mt-20 pt-24 pb-12 px-4 relative overflow-hidden">
+      <section id="contact" className="bg-accent text-white rounded-t-[3rem] md:rounded-t-[4rem] mt-12 md:mt-20 pt-16 md:pt-24 pb-8 md:pb-12 px-4 relative overflow-hidden">
         {/* Glow background */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-serif italic mb-12">Travaillons ensemble</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif italic mb-10 md:mb-12">Travaillons ensemble</h2>
           
           <div className="flex flex-wrap justify-center gap-6 mb-16">
             <a href="mailto:mathiaskowoeofficiel@gmail.com" className="contact-el flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white hover:-translate-y-2 transition-transform shadow-lg" title="Email">
