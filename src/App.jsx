@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, Download, Globe, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Download, Globe, MessageCircle, Menu, X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   const containerRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -151,7 +152,14 @@ export default function App() {
       </div>
 
       {/* Navbar */}
-      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-6 py-3 flex items-center gap-8 ${isScrolled ? 'glass-nav text-white' : 'bg-transparent text-white/90'}`}>
+      <nav className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-4 md:gap-8 ${isScrolled || isMobileMenuOpen ? 'glass-nav text-white' : 'bg-transparent text-white/90'}`}>
+        <button 
+          className="md:hidden p-2 text-white/90 hover:text-accent transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
         <div className="hidden md:flex items-center gap-6 text-sm font-medium">
           <a href="#about" className="hover:text-accent transition-colors interactive-link">À propos</a>
           <a href="#experience" className="hover:text-accent transition-colors interactive-link">Expérience</a>
@@ -161,11 +169,26 @@ export default function App() {
         <a 
           href="/CV_Mathias_KOWOE.pdf" 
           download
-          className="bg-accent text-white px-5 py-2 rounded-full text-sm font-semibold magnetic-btn flex items-center gap-2"
+          className="bg-accent text-white px-5 py-2.5 rounded-full text-sm font-semibold magnetic-btn flex items-center gap-2 whitespace-nowrap"
         >
-          <Download size={16} /> CV
+          <Download size={16} /> <span className="hidden sm:inline">Télécharger</span> CV
         </a>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 z-40 bg-primary/95 backdrop-blur-xl flex flex-col items-center justify-center transition-all duration-500 md:hidden ${
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="flex flex-col items-center gap-10 text-2xl font-serif italic">
+          <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent transition-colors transform hover:scale-110 duration-300">À propos</a>
+          <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent transition-colors transform hover:scale-110 duration-300">Expérience</a>
+          <a href="#skills" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent transition-colors transform hover:scale-110 duration-300">Compétences</a>
+          <a href="#education" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent transition-colors transform hover:scale-110 duration-300">Formation</a>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent transition-colors transform hover:scale-110 duration-300">Contact</a>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section id="hero" className="min-h-[100dvh] flex flex-col items-center justify-center pt-20 px-4 text-center relative">
