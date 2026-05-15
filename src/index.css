@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* ============================================================
+   THEME — TailwindCSS v4 (remplace tailwind.config.js)
+   ============================================================ */
+@theme {
+  /* Couleurs */
+  --color-primary: #0A0A14;
+  --color-accent: #7B61FF;
+  --color-background: #F0EFF4;
+  --color-text-dark: #18181B;
+  --color-text-light: #F0EFF4;
+
+  /* Fonts */
+  --font-sans: 'Sora', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+/* ============================================================
+   BASE STYLES — CSS natif direct (recommandé en TW v4)
+   @apply ne fonctionne pas avec les classes custom en @layer base
+   ============================================================ */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ============================================================
+   COMPOSANTS CUSTOM
+   ============================================================ */
+
+/* Overlay de bruit SVG pour texture */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Navigation glassmorphism */
+.glass-nav {
+  background-color: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Bouton magnétique */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.magnetic-btn:hover {
+  transform: scale(1.03);
+}
+
+/* Liens interactifs */
+.interactive-link {
+  transition: transform 0.2s ease-out;
+}
+.interactive-link:hover {
+  transform: translateY(-1px);
+}
+
+/* Point de timeline avec glow */
+.timeline-dot {
+  box-shadow: 0 0 10px rgba(123, 97, 255, 0.5);
+}
+
+/* Cartes d'expérience */
+.exp-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.exp-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
