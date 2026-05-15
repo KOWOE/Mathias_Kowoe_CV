@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, Download, Globe } from 'lucide-react';
+import { Mail, Phone, Download, Globe, MessageCircle } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,18 +57,21 @@ export default function App() {
       });
 
       // Skills Animation
-      gsap.from('.skill-card', {
-        scrollTrigger: {
-          trigger: '#skills',
-          start: 'top 80%',
-        },
-        y: 30,
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'back.out(1.7)'
-      });
+      gsap.fromTo('.skill-card',
+        { y: 30, opacity: 0, scale: 0.9 },
+        {
+          scrollTrigger: {
+            trigger: '#skills',
+            start: 'top 80%',
+          },
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'back.out(1.7)'
+        }
+      );
 
       // Education Animation
       gsap.from('.edu-card', {
@@ -273,7 +276,7 @@ export default function App() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
-            <div key={index} className="skill-card group bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-sm hover:border-accent/40 hover:bg-white/8 transition-all duration-300">
+            <div key={index} className="skill-card group bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-sm hover:border-accent/40 hover:bg-white/10 transition-all duration-300">
               <div className="flex items-start justify-between mb-5">
                 <div>
                   <h4 className="font-bold text-lg text-white">{skill.name}</h4>
@@ -338,13 +341,16 @@ export default function App() {
           <h2 className="text-5xl md:text-7xl font-serif italic mb-12">Travaillons ensemble</h2>
           
           <div className="flex flex-wrap justify-center gap-6 mb-16">
-            <a href="mailto:mathiaskowoeofficiel@gmail.com" className="contact-el flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white hover:-translate-y-2 transition-transform shadow-lg">
+            <a href="mailto:mathiaskowoeofficiel@gmail.com" className="contact-el flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white hover:-translate-y-2 transition-transform shadow-lg" title="Email">
               <Mail size={24} />
             </a>
-            <a href="tel:+22957307677" className="contact-el flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white hover:-translate-y-2 transition-transform shadow-lg">
+            <a href="https://wa.me/2290157307677" target="_blank" rel="noreferrer" className="contact-el flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white hover:-translate-y-2 transition-transform shadow-lg" title="WhatsApp">
+              <MessageCircle size={24} />
+            </a>
+            <a href="tel:+2290158161026" className="contact-el flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white hover:-translate-y-2 transition-transform shadow-lg" title="Appel téléphonique">
               <Phone size={24} />
             </a>
-            <a href="https://Mathiaskowoe.42web.io" target="_blank" rel="noreferrer" className="contact-el flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white hover:-translate-y-2 transition-transform shadow-lg">
+            <a href="https://mon-cv-self.vercel.app/" target="_blank" rel="noreferrer" className="contact-el flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white hover:-translate-y-2 transition-transform shadow-lg" title="Site Web">
               <Globe size={24} />
             </a>
           </div>
