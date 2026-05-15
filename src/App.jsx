@@ -195,11 +195,7 @@ export default function App() {
         {/* Glow effect behind profile */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-accent/20 rounded-full blur-[100px] pointer-events-none hero-el"></div>
         
-        <div className="hero-el w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-accent/50 mb-8 bg-background/5 flex items-center justify-center shadow-[0_0_30px_rgba(123,97,255,0.3)]">
-          {/* Placeholder for user photo - using initials */}
-          <span className="text-4xl font-bold font-serif italic text-white/80">MK</span>
-        </div>
-        
+
         <h1 className="hero-el text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tighter drop-shadow-2xl">
           Mathias <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400">KOWOE</span>
         </h1>

@@ -22,7 +22,10 @@
    @apply ne fonctionne pas avec les classes custom en @layer base
    ============================================================ */
 @layer base {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
@@ -39,7 +42,12 @@
     color: var(--color-text-light);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-sans);
     letter-spacing: -0.02em;
   }
@@ -74,6 +82,7 @@
 .magnetic-btn {
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .magnetic-btn:hover {
   transform: scale(1.03);
 }
@@ -82,6 +91,7 @@
 .interactive-link {
   transition: transform 0.2s ease-out;
 }
+
 .interactive-link:hover {
   transform: translateY(-1px);
 }
@@ -95,6 +105,7 @@
 .exp-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .exp-card:hover {
   transform: scale(1.01);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
