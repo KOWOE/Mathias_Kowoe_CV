@@ -231,30 +231,38 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 md:py-32 px-4 md:px-12 lg:px-24 max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start bg-white/5 border border-white/10 rounded-3xl md:rounded-[3rem] p-6 sm:p-8 md:p-16 backdrop-blur-sm">
-          <div className="md:w-1/3 about-el">
-            <h2 className="text-4xl md:text-5xl font-serif italic text-accent">À propos</h2>
-            <div className="mt-6 flex flex-col gap-3">
-              {['Entrepreneur', 'Développeur Web', 'Graphiste', 'Designer Pro', 'YouTuber'].map((tag, i) => (
-                <span key={i} className="inline-flex items-center gap-2 text-sm font-mono text-white/60">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>{tag}
-                </span>
-              ))}
-            </div>
+      <section id="about" className="py-20 md:py-32 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24 items-start relative">
+        <div className="md:w-1/3 md:sticky md:top-32 about-el">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif italic text-accent mb-8">À propos</h2>
+          <div className="flex flex-wrap gap-3">
+            {['Entrepreneur', 'Développeur Web', 'Graphiste', 'Designer Pro', 'YouTuber'].map((tag, i) => (
+              <span key={i} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/10 text-xs sm:text-sm font-mono text-white/70 hover:border-accent/50 hover:bg-white/5 hover:text-white transition-all cursor-default">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(123,97,255,0.8)]"></span>
+                {tag}
+              </span>
+            ))}
           </div>
+        </div>
+        
+        <div className="md:w-2/3 about-el flex flex-col gap-8 md:gap-10 mt-4 md:mt-0">
+          <p className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-light text-white tracking-tight">
+            Jeune professionnel alliant <span className="text-accent font-serif italic">créativité</span>, maîtrise technique et vision digitale.
+          </p>
           
-          <div className="hidden md:block w-[1px] self-stretch bg-accent/20 about-el"></div>
+          <div className="w-20 h-[2px] bg-gradient-to-r from-accent to-transparent rounded-full"></div>
           
-          <div className="md:w-2/3 about-el">
-            <p className="text-lg md:text-xl leading-relaxed text-white/80">
-              Jeune professionnel polyvalent alliant créativité, maîtrise technique et vision digitale, je suis le partenaire stratégique qu'il vous faut pour concevoir, développer et propulser votre entreprise vers un niveau supérieur.
-            </p>
-            <p className="mt-6 text-lg leading-relaxed text-white/60">
-              Je ne vends pas des services — je vous offre des résultats. Designer UI/UX, développeur web et créatif depuis 2022, je transforme des idées en projets digitaux puissants et fonctionnels. Figma, Photoshop, Illustrator, HTML, CSS, PHP, WordPress et vibe coding : j'ai tout l'arsenal. Un portfolio de clients satisfaits : j'ai la preuve. Votre projet mérite le meilleur — donnez-lui ce qu'il mérite.
-            </p>
-            <p className="mt-8 text-xl leading-snug text-accent font-serif italic border-l-2 border-accent/40 pl-5">
-              « Je pense comme un designer, je code comme un développeur, je performe comme un professionnel. »
+          <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-white/80 font-light">
+            Je suis le partenaire stratégique qu'il vous faut pour concevoir, développer et propulser votre entreprise vers un niveau supérieur. <strong className="font-semibold text-white">Je ne vends pas des services — je vous offre des résultats.</strong>
+          </p>
+          
+          <p className="text-base sm:text-lg leading-relaxed text-white/50">
+            Designer UI/UX, développeur web et créatif depuis 2022, je transforme des idées en projets digitaux puissants et fonctionnels. Figma, Photoshop, Illustrator, HTML, CSS, PHP, WordPress et vibe coding : j'ai tout l'arsenal. Un portfolio de clients satisfaits : j'ai la preuve.
+          </p>
+          
+          <div className="mt-4 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-accent/10 to-transparent border border-accent/20 relative overflow-hidden">
+            <div className="absolute -top-10 -left-10 text-9xl font-serif text-accent/10 pointer-events-none">"</div>
+            <p className="text-xl sm:text-2xl lg:text-3xl leading-snug text-white/90 font-serif italic relative z-10">
+              « Je pense comme un designer, je code comme un développeur, je performe comme un professionnel. »
             </p>
           </div>
         </div>
