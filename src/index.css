@@ -1,15 +1,46 @@
 @import "tailwindcss";
 
 /* ============================================================
+   VARIABLES DE THÈME (Clair par défaut, Sombre avec .dark-theme)
+   ============================================================ */
+:root {
+  --bg-primary: #F0EFF4;
+  --text-main: #0A0A14;
+  --text-muted: rgba(10, 10, 20, 0.7);
+  --text-muted-more: rgba(10, 10, 20, 0.4);
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --border-card: rgba(123, 97, 255, 0.15);
+  --border-card-hover: rgba(123, 97, 255, 0.4);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --nav-border: rgba(123, 97, 255, 0.15);
+  --contact-btn-bg: #FFFFFF;
+  --contact-btn-text: #0A0A14;
+}
+
+.dark-theme {
+  --bg-primary: #0A0A14;
+  --text-main: #F0EFF4;
+  --text-muted: rgba(240, 239, 244, 0.7);
+  --text-muted-more: rgba(240, 239, 244, 0.4);
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border-card: rgba(255, 255, 255, 0.1);
+  --border-card-hover: rgba(123, 97, 255, 0.4);
+  --bg-card-hover: rgba(255, 255, 255, 0.1);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --contact-btn-bg: #0A0A14;
+  --contact-btn-text: #F0EFF4;
+}
+
+/* ============================================================
    THEME — TailwindCSS v4 (remplace tailwind.config.js)
    ============================================================ */
 @theme {
   /* Couleurs */
-  --color-primary: #0A0A14;
+  --color-primary: var(--bg-primary);
   --color-accent: #7B61FF;
-  --color-background: #F0EFF4;
-  --color-text-dark: #18181B;
-  --color-text-light: #F0EFF4;
+  --color-background: var(--bg-primary);
+  --color-text-dark: var(--text-main);
+  --color-text-light: var(--text-main);
 
   /* Fonts */
   --font-sans: 'Sora', sans-serif;
@@ -38,8 +69,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    transition: background-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   h1,
@@ -72,10 +104,11 @@
 
 /* Navigation glassmorphism */
 .glass-nav {
-  background-color: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  background-color: color-mix(in srgb, var(--bg-primary) 65%, transparent);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--nav-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 /* Bouton magnétique */
