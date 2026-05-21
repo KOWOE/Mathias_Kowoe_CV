@@ -197,6 +197,7 @@ export default function App() {
     { name: 'Formateur', tools: ['Bureautique', 'Graphisme', 'Photoshop', 'Illustrator', 'Figma'], since: 'Depuis 2023', level: 90 },
     { name: 'TikTok Monétisé', tools: ['Création de comptes', 'Monétisation', 'Stratégie TikTok'], since: 'Depuis 2024', level: 82 },
     { name: 'Media Buying', tools: ['Publicité en ligne', 'Facebook Ads', 'Formation'], since: 'Depuis 2024', level: 78 },
+    { name: 'Admin Réseau & Sécurité', tools: ['Administration', 'Réseaux', 'Sécurité Informatique'], since: 'Depuis 2022', level: 80 },
   ];
 
   const education = [
