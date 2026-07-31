@@ -211,6 +211,14 @@ export default function Portfolio() {
           <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent transition-colors transform hover:scale-110 duration-300">Projets</a>
 
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent transition-colors transform hover:scale-110 duration-300">Contact</a>
+          
+          <a 
+            href="/facture"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="mt-4 border-2 border-[var(--border-card-hover)] text-[var(--text-main)] hover:border-accent hover:text-accent px-8 py-3 rounded-full text-xl font-semibold flex items-center justify-center transition-all duration-300 transform hover:scale-105"
+          >
+            Créer une facture
+          </a>
         </div>
       </div>
 
